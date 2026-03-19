@@ -1,24 +1,28 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended"],
-  "rangeStrategy": "pin",
-  "labels": ["dependencies"],
-  "packageRules": [
-    {
-      "description": "Group Nuxt packages together",
-      "matchPackageNames": ["nuxt", "@nuxt/**"],
-      "groupName": "nuxt"
-    },
-    {
-      "description": "Keep peer dependency range for better-auth",
-      "matchPackageNames": ["better-auth"],
-      "matchDepTypes": ["peerDependencies"],
-      "rangeStrategy": "widen"
-    },
-    {
-      "description": "Automerge minor and patch updates",
-      "matchUpdateTypes": ["minor", "patch"],
-      "automerge": true
-    }
-  ]
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "config:recommended",
+        ":dependencyDashboard",
+        ":semanticCommitTypeAll(chore)",
+        ":label(dependencies)",
+        ":disablePeerDependencies"
+    ],
+    "packageRules": [
+        {
+            "description": "Group Nuxt ecosystem packages",
+            "groupName": "nuxt",
+            "matchPackageNames": ["/^@nuxt//", "/^nuxt$/", "/^nuxi$/"]
+        },
+        {
+            "description": "Group Better Auth packages",
+            "groupName": "better-auth",
+            "matchPackageNames": ["/^better-auth/"]
+        },
+        {
+            "description": "Automerge minor/patch devDependencies",
+            "matchDepTypes": ["devDependencies"],
+            "matchUpdateTypes": ["minor", "patch"],
+            "automerge": true
+        }
+    ]
 }
