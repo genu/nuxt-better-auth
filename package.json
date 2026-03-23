@@ -12,14 +12,21 @@
   "typesVersions": {
     "*": {
       ".": [
+        "./dist/module.d.mts"
+      ],
+      "types": [
         "./dist/types.d.mts"
       ]
     }
   },
   "exports": {
     ".": {
-      "types": "./dist/types.d.mts",
+      "types": "./dist/module.d.mts",
       "import": "./dist/module.mjs"
+    },
+    "./types": {
+      "types": "./dist/types.d.mts",
+      "import": "./dist/types.mjs"
     }
   },
   "files": [
