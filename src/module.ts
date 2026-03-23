@@ -101,6 +101,11 @@ export default defineNuxtModule<BetterAuthModuleOptions>({
       filePath: resolve("./runtime/components/AuthUserButton.vue"),
     })
 
+    addComponent({
+      name: "AuthTeamSwitcher",
+      filePath: resolve("./runtime/components/AuthTeamSwitcher.vue"),
+    })
+
     // --- Alias for user config imports ---
     addTemplate({
       filename: "better-auth-utils/types.ts",
