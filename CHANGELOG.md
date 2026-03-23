@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.5](https://github.com/genu/nuxt-better-auth-utils/compare/v0.1.4...v0.1.5) (2026-03-23)
+
+
+### Bug Fixes
+
+* include types.ts as build entry so #better-auth-utils alias works ([#14](https://github.com/genu/nuxt-better-auth-utils/issues/14)) ([1c139e0](https://github.com/genu/nuxt-better-auth-utils/commit/1c139e0d368bc87d47673ad6c4c07b511646102a)), closes [#13](https://github.com/genu/nuxt-better-auth-utils/issues/13)
+
 ## [0.1.4](https://github.com/genu/nuxt-better-auth-utils/compare/v0.1.3...v0.1.4) (2026-03-20)
 
 
