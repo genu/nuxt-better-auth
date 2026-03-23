@@ -10,7 +10,7 @@ const { user, session, signOut, ready, loggedIn } = useAuth()
     v-else-if="loggedIn"
     :user="user"
     :session="session"
-    :sign-out="signOut"
+    :signOut="signOut"
     :ready="ready"
   />
   <slot v-else name="fallback" />
