@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.12](https://github.com/genu/nuxt-better-auth-utils/compare/v0.1.11...v0.1.12) (2026-03-24)
+
+
+### Bug Fixes
+
+* move config files to scoped directories for tsconfig resolution ([#32](https://github.com/genu/nuxt-better-auth-utils/issues/32)) ([a9626a3](https://github.com/genu/nuxt-better-auth-utils/commit/a9626a3d63e04b61bd7566ae9dc749d1e4a72b0b))
+* move config files to scoped directories for tsconfig resolution ([#32](https://github.com/genu/nuxt-better-auth-utils/issues/32)) ([9235340](https://github.com/genu/nuxt-better-auth-utils/commit/92353406015adef510c3996a9d4e918d6f87b790))
+
 ## [0.1.11](https://github.com/genu/nuxt-better-auth-utils/compare/v0.1.10...v0.1.11) (2026-03-24)
 
 
