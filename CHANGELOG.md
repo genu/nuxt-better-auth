@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.13](https://github.com/genu/nuxt-better-auth-utils/compare/v0.1.12...v0.1.13) (2026-04-04)
+
+
+### Bug Fixes
+
+* **ci:** update prepare-release workflow for PR-based flow ([#35](https://github.com/genu/nuxt-better-auth-utils/issues/35)) ([a3fcc0e](https://github.com/genu/nuxt-better-auth-utils/commit/a3fcc0e7fe81b6153c72a59cf6119a8af426353d))
+* prevent auth plugin crash during prerender ([#39](https://github.com/genu/nuxt-better-auth-utils/issues/39)) ([82b71df](https://github.com/genu/nuxt-better-auth-utils/commit/82b71dfeaa081069a780cacaf933a383e45680d5)), closes [#38](https://github.com/genu/nuxt-better-auth-utils/issues/38)
+
 ## [0.1.12](https://github.com/genu/nuxt-better-auth-utils/compare/v0.1.11...v0.1.12) (2026-03-24)
 
 
