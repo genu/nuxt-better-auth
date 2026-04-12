@@ -85,8 +85,8 @@ export function generateServerAuthTypes(serverConfigAlias: string, hasServerConf
     "",
     "  export function useServerAuth(): {",
     "    auth: AuthInstance",
-    "    requireSession: (event: H3Event) => Promise<NonNullable<Awaited<ReturnType<AuthInstance['api']['getSession']>>>>",
-    "    getSession: (event: H3Event) => Promise<Awaited<ReturnType<AuthInstance['api']['getSession']>>>",
+    "    requireSession: (event: H3Event) => Promise<NonNullable<AuthInstance['$Infer']['Session']>>",
+    "    getSession: (event: H3Event) => Promise<AuthInstance['$Infer']['Session'] | null>",
     "  }",
     "}",
   ].join("\n")
