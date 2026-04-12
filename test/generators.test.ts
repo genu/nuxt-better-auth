@@ -91,13 +91,26 @@ describe("generateServerAuth", () => {
 })
 
 describe("generateServerAuthTypes", () => {
-  it("generates type declarations for the server auth module", () => {
-    const result = generateServerAuthTypes()
+  it("generates generic type declarations without server config", () => {
+    const result = generateServerAuthTypes("~~/server/auth.server.config", false)
 
     expect(result).toContain('import type { H3Event } from "h3"')
     expect(result).toContain('import type { betterAuth } from "better-auth"')
+    expect(result).toContain("type AuthInstance = ReturnType<typeof betterAuth>")
     expect(result).toContain('declare module "#better-auth-utils/server/auth"')
-    expect(result).toContain("export type AuthInstance")
+    expect(result).toContain("export type { AuthInstance }")
+    expect(result).toContain("export function useServerAuth()")
+  })
+
+  it("infers AuthInstance from server config when available", () => {
+    const result = generateServerAuthTypes("~~/server/auth.server.config", true)
+
+    expect(result).toContain('import type { H3Event } from "h3"')
+    expect(result).toContain('import type serverConfig from "~~/server/auth.server.config"')
+    expect(result).toContain("type ResolvedServerConfig = typeof serverConfig extends (...args: any[]) => infer R ? R : typeof serverConfig")
+    expect(result).toContain('import type { Auth } from "better-auth"')
+    expect(result).toContain("type AuthInstance = Auth<ResolvedServerConfig & { secret: string }>")
+    expect(result).toContain("export type { AuthInstance }")
     expect(result).toContain("export function useServerAuth()")
   })
 })
@@ -227,7 +240,7 @@ describe("generateUseAuth", () => {
     const result = generateUseAuth("~~/auth.client.config", false, "~~/server/auth.server.config", true)
 
     expect(result).toContain("type ResolvedServerConfig = typeof serverConfig extends (...args: any[]) => infer R ? R : typeof serverConfig")
-    expect(result).toContain("type AuthInstance = { options: ResolvedServerConfig & { secret: string } }")
+    expect(result).toContain("type AuthInstance = Auth<ResolvedServerConfig & { secret: string }>")
   })
 
   it("uses custom server config alias path", () => {
