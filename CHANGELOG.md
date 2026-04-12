@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.24](https://github.com/genu/nuxt-better-auth-utils/compare/v0.1.23...v0.1.24) (2026-04-12)
+
+
+### Bug Fixes
+
+* resolve custom session types in useServerAuth ([#75](https://github.com/genu/nuxt-better-auth-utils/issues/75)) ([a222d20](https://github.com/genu/nuxt-better-auth-utils/commit/a222d20c4869d9ba3df896923673569290f310a5))
+
 ## [0.1.23](https://github.com/genu/nuxt-better-auth-utils/compare/v0.1.22...v0.1.23) (2026-04-12)
 
 
