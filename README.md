@@ -11,6 +11,7 @@ Nuxt module for [Better Auth](https://www.better-auth.com/) — full lifecycle i
 - `auth` route middleware for protecting pages
 - `customSessionClient<AuthInstance>()` auto-injected for full session type inference
 - Session signal listener for cross-tab sync
+- Built-in components: `AuthOnly`, `GuestOnly`, `AuthUserButton`, `AuthTeamSwitcher`
 - Zero opinions on database adapter, plugins, or auth strategy
 
 ## Setup
@@ -31,7 +32,9 @@ Set `BETTER_AUTH_SECRET` in your `.env` (or `NUXT_SECRET`).
 
 ## Configuration
 
-### Server Config — `auth.server.config.ts`
+### Server Config — `server/auth.server.config.ts`
+
+Place this file in the `server/` directory so that server auto-imports (e.g. `useDrizzle()`) are available.
 
 Standard Better Auth options. The module auto-injects `secret`.
 
@@ -58,7 +61,9 @@ export default defineAuthConfig(() => {
 })
 ```
 
-### Client Config — `auth.client.config.ts`
+### Client Config — `app/auth.client.config.ts`
+
+Place this file in the `app/` directory so that client auto-imports (e.g. `useRuntimeConfig()`) are available.
 
 ```ts
 import { defineAuthClientConfig } from '#better-auth-utils'
@@ -77,7 +82,6 @@ Both files are optional. If absent, the module uses bare defaults.
 // nuxt.config.ts
 export default defineNuxtConfig({
   betterAuthUtils: {
-    configPath: '~~/',           // where to find config files
     redirectTo: '/auth/sign-in', // auth middleware redirect
     handlerRoute: '/api/auth/**', // API handler route
   },
@@ -91,7 +95,7 @@ export default defineNuxtConfig({
 Auto-imported composable with reactive session state and raw client access.
 
 ```ts
-const { session, user, loggedIn, signOut, fetch, client } = useAuth()
+const { session, user, loggedIn, ready, signOut, fetch, client } = useAuth()
 
 // Use the raw Better Auth client for any operation
 await client.signIn.email({ email, password })
@@ -113,6 +117,15 @@ export default defineEventHandler(async (event) => {
   const { requireSession } = useServerAuth()
   const session = await requireSession(event) // throws 401 if unauthenticated
   return session.user
+})
+```
+
+```ts
+// Nullable session (no error thrown)
+export default defineEventHandler(async (event) => {
+  const { getSession } = useServerAuth()
+  const session = await getSession(event) // returns null if unauthenticated
+  return { loggedIn: !!session }
 })
 ```
 
