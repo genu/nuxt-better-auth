@@ -121,6 +121,6 @@ export default defineNuxtModule<BetterAuthModuleOptions>({
     })
 
     // --- Alias for user config imports ---
-    nuxt.options.alias["#better-auth-utils"] = resolve("./runtime/types")
+    nuxt.options.alias["#better-auth-config"] = resolve("./runtime/types")
   },
 })

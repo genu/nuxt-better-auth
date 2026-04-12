@@ -66,9 +66,9 @@ describe("module setup with defaults", () => {
     expect(plugin).toBeDefined()
   })
 
-  it("sets #better-auth-utils alias to types", () => {
-    expect(nuxt.options.alias["#better-auth-utils"]).toBeDefined()
-    expect(nuxt.options.alias["#better-auth-utils"]).toContain("types")
+  it("sets #better-auth-config alias to types", () => {
+    expect(nuxt.options.alias["#better-auth-config"]).toBeDefined()
+    expect(nuxt.options.alias["#better-auth-config"]).toContain("types")
   })
 
   it("generates useServerAuth server template without config import", () => {
