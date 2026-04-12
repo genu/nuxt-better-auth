@@ -39,7 +39,7 @@ Place this file in the `server/` directory so that server auto-imports (e.g. `us
 Standard Better Auth options. The module auto-injects `secret`.
 
 ```ts
-import { defineAuthConfig } from '#better-auth-utils'
+import { defineAuthConfig } from '#better-auth-config'
 import { drizzleAdapter } from 'better-auth/adapters/drizzle'
 import { organization } from 'better-auth/plugins'
 
@@ -66,7 +66,7 @@ export default defineAuthConfig(() => {
 Place this file in the `app/` directory so that client auto-imports (e.g. `useRuntimeConfig()`) are available.
 
 ```ts
-import { defineAuthClientConfig } from '#better-auth-utils'
+import { defineAuthClientConfig } from '#better-auth-config'
 import { organizationClient } from 'better-auth/client/plugins'
 
 export default defineAuthClientConfig({
@@ -150,7 +150,7 @@ definePageMeta({
 Use Better Auth's `customSession` plugin with the `satisfies` pattern for full type inference:
 
 ```ts
-import { defineAuthConfig } from '#better-auth-utils'
+import { defineAuthConfig } from '#better-auth-config'
 import type { BetterAuthOptions } from 'better-auth'
 import { customSession, organization } from 'better-auth/plugins'
 
