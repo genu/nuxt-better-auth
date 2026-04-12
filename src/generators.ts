@@ -66,9 +66,10 @@ export function generateServerAuth(serverConfigAlias: string, hasServerConfig: b
 export function generateServerAuthTypes(serverConfigAlias: string, hasServerConfig: boolean): string {
   const authInstanceType = hasServerConfig
     ? [
+        'import type { Auth } from "better-auth"',
         `import type serverConfig from "${serverConfigAlias}"`,
         `type ResolvedServerConfig = typeof serverConfig extends (...args: any[]) => infer R ? R : typeof serverConfig`,
-        `type AuthInstance = { options: ResolvedServerConfig & { secret: string } }`,
+        `type AuthInstance = Auth<ResolvedServerConfig & { secret: string }>`,
       ].join("\n")
     : [
         'import type { betterAuth } from "better-auth"',
@@ -101,9 +102,10 @@ export function generateUseAuth(
 
   const authInstanceType = hasServerConfig
     ? [
+        `import type { Auth } from "better-auth"`,
         `import type serverConfig from "${serverConfigAlias}"`,
         `type ResolvedServerConfig = typeof serverConfig extends (...args: any[]) => infer R ? R : typeof serverConfig`,
-        `type AuthInstance = { options: ResolvedServerConfig & { secret: string } }`,
+        `type AuthInstance = Auth<ResolvedServerConfig & { secret: string }>`,
       ].join("\n")
     : [
         `import type { betterAuth } from "better-auth"`,
