@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.27](https://github.com/genu/nuxt-better-auth-utils/compare/v0.1.26...v0.1.27) (2026-04-13)
+
+
+### Bug Fixes
+
+* drop .ts extension from server template filename ([#81](https://github.com/genu/nuxt-better-auth-utils/issues/81)) ([dcde6aa](https://github.com/genu/nuxt-better-auth-utils/commit/dcde6aab7279f5b1a5305c931105f918b2291711))
+
 ## [0.1.26](https://github.com/genu/nuxt-better-auth-utils/compare/v0.1.25...v0.1.26) (2026-04-13)
 
 
