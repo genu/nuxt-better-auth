@@ -172,5 +172,6 @@ export function generateAuthMiddleware(redirectTo: string): string {
   if (!loggedIn.value) {
     return navigateTo("${redirectTo}")
   }
-})`;
+})
+`;
 }
