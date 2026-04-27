@@ -55,7 +55,7 @@
   "devDependencies": {
     "@nuxt/module-builder": "1.0.2",
     "@nuxt/schema": "4.4.2",
-    "@nuxt/test-utils": "4.0.2",
+    "@nuxt/test-utils": "4.0.3",
     "better-auth": "1.6.9",
     "happy-dom": "20.9.0",
     "nuxt": "4.4.2",
